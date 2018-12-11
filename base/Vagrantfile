@@ -1,9 +1,10 @@
 # vi: set ft=ruby :
 
 HOST = ENV["SYSNAME"]
+NAME = Dir.pwd.split('/').last
 
-def full_name(text)
-  text + '.' + HOST
+def full_name
+  NAME + '.' + HOST
 end
 
 Vagrant.configure("2") do |config|
@@ -12,9 +13,9 @@ Vagrant.configure("2") do |config|
   config.vm.network "public_network", bridge: "eno1", 
     use_dhcp_assigned_default_route: true
   
-  config.vm.define HOST do |base|
-    base.vm.hostname = full_name("base")
-    base.ssh.insert_key = false
+  config.vm.define full_name do |guest|
+    guest.vm.hostname = full_name
+    guest.ssh.insert_key = false
   end
 
   config.vm.provision "shell", inline: <<-SHELL
