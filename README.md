@@ -1,10 +1,6 @@
-# VVM
+# VVM - Vagrant Virtual Machines
 
-Vagrant Virtual Machines
-
-## Virtual Machines for Research and Development
-
-This repo provides linux virtual machines for local development.
+This repo provides linux virtual machines for development.
 
 Host machine can be your desktop (linux, mac or windows) or a bare-metal server
 in the datacenter.
@@ -18,12 +14,16 @@ Then to setup a new development environment:
     vagrant up
     vagrant ssh 
 
+Your VM comes pre-loaded with language runtimes (Ruby, NodeJS, Python), 
+editors (vim), databases (SqLite, Postgres, Redis), etc.
+
 Virtual machines give flexibility:
+- flexible filesharing, port-forwarding, DNS & network configuration
 - simple to clone/copy/backup your whole machine
 - you can move your VM between desktop and datacenter
 - you can run many independent VMs on a production host
 
-This infrastructure is good for research and development.
+This tooling is optimized for research and development.
 
 For high-volume production, it will be better to use a more
 performance-oriented virtualization (KVM/Firecracker) or containerization.
@@ -32,6 +32,6 @@ performance-oriented virtualization (KVM/Firecracker) or containerization.
 
 - [Vagrant](http://vagrantup.com)
 - [VirtualBox](https://www.virtualbox.org/)
-- [Customized Machine Images](https://app.vagrantup.com/bugmark)
+- [Machine Images](https://app.vagrantup.com/bugmark)
 - [Vagrantfile Repo](https://github.com/andyl/VVM)
 
