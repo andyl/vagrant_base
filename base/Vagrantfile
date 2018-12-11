@@ -1,17 +1,19 @@
 # vi: set ft=ruby :
 
-def htext
-  '.' + ENV["SYSNAME"]
+HOST = ENV["SYSNAME"]
+
+def full_name(text)
+  text + '.' + HOST
 end
 
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/ubuntu1804"
 
-  config.vm.network "public_network", bridge: "eth1", 
+  config.vm.network "public_network", bridge: "eno1", 
     use_dhcp_assigned_default_route: true
   
-  config.vm.define "base" do |base|
-    base.vm.hostname = "base" + htext 
+  config.vm.define HOST do |base|
+    base.vm.hostname = full_name("base")
     base.ssh.insert_key = false
   end
 
