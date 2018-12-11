@@ -1,4 +1,4 @@
-# vvm
+# VVM
 
 Vagrant Virtual Machines
 
@@ -6,4 +6,4 @@ Vagrant Virtual Machines
 
 Machine Images https://app.vagrantup.com/bugmark
 
-Vagrantfiles https://github.com/andyl/vvm
+Vagrantfiles https://github.com/andyl/VVM
