@@ -1,0 +1,26 @@
+# vi: set ft=ruby :
+
+def htext
+  '.' + ENV["SYSNAME"]
+end
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "generic/ubuntu1804"
+
+  config.vm.network "public_network", bridge: "eth1", 
+    use_dhcp_assigned_default_route: true
+  
+  config.vm.define "base" do |base|
+    base.vm.hostname = "base" + htext 
+    base.ssh.insert_key = false
+  end
+
+  config.vm.provision "shell", inline: <<-SHELL
+    apt update
+    apt install -yq ssh python
+  SHELL
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbook.yml"
+  end
+end
