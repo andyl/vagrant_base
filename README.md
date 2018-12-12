@@ -10,7 +10,7 @@ To get started, install Git, Vagrant and VirtualBox on your host.
 Then to setup a new development environment:
 
     git clone https://github.com/andyl/VVM
-    cd VVM/devhost
+    cd VVM/base
     vagrant up
     vagrant ssh 
 
@@ -20,6 +20,7 @@ editors (vim), databases (SqLite, Postgres, Redis), etc.
 Virtual machines give flexibility:
 - flexible filesharing, port-forwarding, DNS & network configuration
 - simple to clone/copy/backup your whole machine
+- custom base-boxes for faster provisioning
 - you can move your VM between desktop and datacenter
 - you can run many independent VMs on a production host
 
@@ -39,6 +40,10 @@ runs.
 If you want to customize the Ansible provisioning process, copy the `ANSIBLE`
 directory to another directory (like `ansible`), then edit the `Vagrantfile` to
 change the target directory.
+
+## Support
+
+Contact Andy if you have questions or need a hand getting up to speed.  
 
 ## Resources
 
