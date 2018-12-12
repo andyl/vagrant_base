@@ -28,9 +28,10 @@
 
 - [ ] test in datacenter with bare-metal machine (VPS-Mart)
 - [ ] test on mac
+- [ ] run Vbox GUI remotely
 - [ ] fix gravatars and email addresses (bugmark, andyl, casmacc)
 - [ ] Casmacc-style DNS routing
 - [ ] Casmacc-style SSL provisioning
-- [ ] demo machine backup and restore
+- [ ] VM backup/snapshot/restore script
 - [ ] shutdown Linode boxes
 
