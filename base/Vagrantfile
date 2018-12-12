@@ -1,12 +1,9 @@
 #vi: set ft=ruby :
 
-HOST_NAME     = ENV["SYSNAME"]
 GUEST_NAME    = Dir.pwd.split('/').last
-BOOTSTRAP_URL = "https://git.io/fp53p" 
-
-def full_name
-  GUEST_NAME + '.' + HOST_NAME
-end
+HOST_NAME     = ENV["SYSNAME"]
+FULL_NAME     = GUEST_NAME + '.' + HOST_NAME
+BOOTSTRAP_URL = "https://git.io/fp53p"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/ubuntu1804"
@@ -15,8 +12,8 @@ Vagrant.configure("2") do |config|
   config.vm.network "public_network", bridge: "eno1", 
     use_dhcp_assigned_default_route: true
   
-  config.vm.define full_name do |guest|
-    guest.vm.hostname = full_name
+  config.vm.define FULL_NAME do |guest|
+    guest.vm.hostname = FULL_NAME
     guest.ssh.insert_key = false
   end
 
