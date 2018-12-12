@@ -20,7 +20,6 @@ editors (vim), databases (SqLite, Postgres, Redis), etc.
 Virtual machines give flexibility:
 - flexible filesharing, port-forwarding, DNS & network configuration
 - simple to clone/copy/backup your whole machine
-- custom base-boxes for faster provisioning
 - you can move your VM between desktop and datacenter
 - you can run many independent VMs on a production host
 
@@ -43,7 +42,14 @@ change the target directory.
 
 ## Support
 
-Contact Andy if you have questions or need a hand getting up to speed.  
+Contact Andy if you have questions or would like a hand getting up to speed.  
+
+Here are some things we can try together:
+- custom base boxes for fast installataion
+- mounting source directories to use GUI editors on host machine
+- development / test consoles
+- moving a VM from your desktop to the datacenter
+- pair-programming from your desktop VM across the firewall
 
 ## Resources
 
