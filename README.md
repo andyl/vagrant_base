@@ -42,11 +42,14 @@ change the `provisioning_path`.
 
 Run these commands:
 
+    # get the name of the base-box you want to package
+    vboxmanage list vms
     vagrant ssh -c util/x-ansible/bin/boxprep
-    vagrant package
+    vagrant package --base <YOURBOX>
 
-Your new base box will be written to `package.box`.  You can share your base
-box publically on Ansible Cloud, or keep it local for private use.
+Your new base box will be written to `package.box`.  You can use this new base
+box like any other Vagrant box.  You can share your base box publically on
+Vagrant Cloud, or keep it local for private use.
 
 ## Support
 
