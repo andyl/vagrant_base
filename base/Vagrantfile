@@ -1,7 +1,7 @@
 #vi: set ft=ruby :
 
 GUEST_NAME    = Dir.pwd.split('/').last
-HOST_NAME     = ENV["SYSNAME"]
+HOST_NAME     = ENV["SYSNAME"] || "localhost"
 FULL_NAME     = GUEST_NAME + '.' + HOST_NAME
 BOOTSTRAP_URL = "https://git.io/fp53p"
 

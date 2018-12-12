@@ -38,6 +38,16 @@ If you want to customize the Ansible provisioning process, copy the `ANSIBLE`
 directory to another directory (like `ansible`), then edit the `Vagrantfile` to
 change the `provisioning_path`.
 
+## Preparing a new Base Box
+
+Run these commands:
+
+    vagrant ssh -c util/x-ansible/bin/boxprep
+    vagrant package
+
+Your new base box will be written to `package.box`.  You can share your base
+box publically on Ansible Cloud, or keep it local for private use.
+
 ## Support
 
 Contact Andy if you have questions or would like a hand getting up to speed.  

@@ -20,12 +20,17 @@
 - [x] create a playbook-customization workflow
 - [x] create a minimal bootstrap process
 
+## 2018 Dec 12 - WED
+
+- [x] test on windows
+
 ## TBD
 
+- [ ] test in datacenter with bare-metal machine (VPS-Mart)
+- [ ] test on mac
 - [ ] fix gravatars and email addresses (bugmark, andyl, casmacc)
 - [ ] Casmacc-style DNS routing
 - [ ] Casmacc-style SSL provisioning
 - [ ] demo machine backup and restore
-- [ ] test in datacenter with bare-metal machine (VPS-Mart)
 - [ ] shutdown Linode boxes
 
