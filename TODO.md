@@ -14,13 +14,17 @@
 - [x] create GitHub repo `andyl/VVM`
 - [x] create local repo `vvm`
 
-## TBD
+## 2018 Dec 11 - TUE
 
-- [ ] get `ansible-local` working
+- [x] get `ansible-local` working
+- [x] create a playbook-customization workflow
+- [x] create a minimal bootstrap process
+
+## TBD
 - [ ] fix gravatars and email addresses (bugmark, andyl, casmacc)
-- [ ] demo machine backup and restore
 - [ ] Casmacc-style DNS routing
 - [ ] Casmacc-style SSL provisioning
+- [ ] demo machine backup and restore
 - [ ] test in datacenter with bare-metal machine (VPS-Mart)
 - [ ] shutdown Linode boxes
 
