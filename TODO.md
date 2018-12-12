@@ -21,6 +21,7 @@
 - [x] create a minimal bootstrap process
 
 ## TBD
+
 - [ ] fix gravatars and email addresses (bugmark, andyl, casmacc)
 - [ ] Casmacc-style DNS routing
 - [ ] Casmacc-style SSL provisioning
