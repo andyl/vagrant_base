@@ -28,6 +28,18 @@ This tooling is optimized for research and development.
 For high-volume production, it will be better to use a more
 performance-oriented virtualization (KVM/Firecracker) or containerization.
 
+## Ansible Customization
+
+The Ansible provisioner will create a directory `ANSIBLE` in your working
+directory.  (the same directory that holds the `Vagrantfile`)  The `ANSIBLE`
+directory contains the ansible configuration file and a default playbook.  This
+is a read-only directory that will be re-written every time the provisioner
+runs.  
+
+If you want to customize the Ansible provisioning process, copy the `ANSIBLE`
+directory to another directory (like `ansible`), then edit the `Vagrantfile` to
+change the target directory.
+
 ## Resources
 
 - [Vagrant](http://vagrantup.com)
