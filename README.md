@@ -11,6 +11,10 @@ create and provision a new development environment:
     vagrant up
     vagrant ssh 
 
+This system relies on a collection of [Ansible
+Roles](https://github.com/andyl/x-ansible) for system provisioning and software
+installation.
+
 Virtual machines give flexibility:
 - flexible filesharing, port-forwarding, DNS & network configuration
 - simple to clone/copy/backup your whole machine
@@ -51,4 +55,5 @@ Here are some things we can try together:
 - [VirtualBox](https://www.virtualbox.org/)
 - [Machine Images](https://app.vagrantup.com/bugmark)
 - [Vagrantfile Repo](https://github.com/andyl/VVM)
+- [Ansible Roles](https://github.com/andyl/x-ansible)
 
