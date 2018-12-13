@@ -23,15 +23,17 @@
 ## 2018 Dec 12 - WED
 
 - [x] test on windows
+- [x] test on mac
+- [x] provision and test docker containers
+- [x] SSH - Configure a Proxy Jump Host
 
 ## TBD
 
-- [ ] test in datacenter with bare-metal machine (VPS-Mart)
-- [ ] test on mac
-- [ ] run Vbox GUI remotely
-- [ ] fix gravatars and email addresses (bugmark, andyl, casmacc)
-- [ ] Casmacc-style DNS routing
+- [ ] setup RemoteBox and vboxwebsrv
+- [ ] Casmacc-style http proxy
 - [ ] Casmacc-style SSL provisioning
+- [ ] test in datacenter with bare-metal machine (VPS-Mart)
+- [ ] fix gravatars and email addresses (bugmark, andyl, casmacc)
 - [ ] VM backup/snapshot/restore script
 - [ ] shutdown Linode boxes
 
