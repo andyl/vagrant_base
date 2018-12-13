@@ -26,13 +26,14 @@
 - [x] test on mac
 - [x] provision and test docker containers
 - [x] SSH - Configure a Proxy Jump Host
+- [x] order bare-metal server - bugmark.tech
 
 ## TBD
 
-- [ ] setup RemoteBox and vboxwebsrv
+- [ ] setup RemoteBox and vboxwebsrv on bugmark.tech
+- [ ] test in datacenter with bare-metal machine (VPS-Mart)
 - [ ] Casmacc-style http proxy
 - [ ] Casmacc-style SSL provisioning
-- [ ] test in datacenter with bare-metal machine (VPS-Mart)
 - [ ] fix gravatars and email addresses (bugmark, andyl, casmacc)
 - [ ] VM backup/snapshot/restore script
 - [ ] shutdown Linode boxes
