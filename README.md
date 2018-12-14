@@ -3,17 +3,13 @@
 This repo provides linux virtual machines for development.  Host machine can be
 your desktop (linux, mac or windows) or a bare-metal server in the datacenter.
 
-To get started, install Git, Vagrant and VirtualBox on your host.  Then to
-create and provision a new development environment:
+To get started, install [Git][git], [Vagrant][vgr] and [VirtualBox][box] on
+your host.  Then to create and provision a new development environment:
 
     git clone https://github.com/andyl/VVM
-    cd VVM/raw_base
+    cd VVM/packaged_base
     vagrant up
     vagrant ssh 
-
-This system relies on a collection of [Ansible
-Roles][1] for system provisioning and software
-installation.
 
 ## Goals
 
@@ -23,17 +19,18 @@ Virtual machines give flexibility:
 - you can move your VM between desktop and datacenter
 - you can run many independent VMs on a production host
 
-Your VM can be pre-loaded with language runtimes (Ruby, NodeJS, Python), 
-editors (vim), databases (SqLite, Postgres, Redis), etc.
+We provide a set of VM images that are pre-loaded with language runtimes
+(Ruby, NodeJS, Python), editors (vim), databases (SqLite, Postgres, Redis),
+etc.  The machine images are extensible and customizable.
 
 This tooling is optimized for research and development.  For high-volume
 production, use performance-oriented tools like KVM / Firecracker / Docker.
 
-## Ansible Customization
+## Ansible for Provisioning
 
-To really understand how everything fits together, get familiar with the
-[Ansible Roles](https://github.com/andyl/x-ansible) repo, the playbooks under
-the `ANSIBLE` directory, and the roles for installing software components.
+Machine provisioning is done with [Ansible][ans].  Study the [Ansible
+Roles][anx] repo, the playbooks under the `ANSIBLE` directory, and the roles
+for installing software components.
 
 The Ansible provisioner will create a read-only copy of the `ANSIBLE` directory
 in your working directory.  (the same directory that holds the `Vagrantfile`)
@@ -46,19 +43,19 @@ change the `provisioning_path`.
 
 ## Packaged Machines
 
-We publish a few standard machine configurations on our [Vagrant Cloud]:
+We publish machine images on our [Vagrant Cloud][vgc]
 
-- RAW MACHINES start with blank machine images and are provisioned dynamically
-  at boot time.  Provisioning takes from 1 to 30 minutes depending on
-  configuration.
-- PACKAGED MACHINES are pre-provisioned - just download and run.
+Machine Profiles:
+- base - the simplest base machine
+- devmin - language runtimes and editors
+- devmax - devmin plus Docker, Postgres, Influx, Grafana, etc.
+- docker - devmin plus Docker
 
-Six Machines in total:
-- raw & packaged base - a blank machine image
-- raw & packaged docker - contains everything needed to run containers
-- raw & packaged exchange - total package: DB, App, Grafana, etc. etc.
-
-Find our packaged machines on the [Vagrant Cloud](https://app.vagrantup.com/bugmark)
+For each profile, we have two variants:
+- RAW MACHINES start with a blank machine and are provisioned at boot time.
+  Provisioning takes 5-60 mins. 
+- PACKAGED MACHINES are pre-provisioned to download and run.  Machine images
+  are 1-3GB.  Create new machines in about 90 seconds.
 
 ## How to prepare a new Packaged Machine
 
@@ -85,11 +82,22 @@ Here are some things we can try together:
 - moving a VM from your desktop to the datacenter
 - pair-programming from your desktop VM across the firewall
 
-When you find issues with VM configurations, port settings, network configuration, etc. please file an issue in our [Issue Tracker](https://github.com/andyl/VVM/issues).
+When you find issues with VM configurations, port settings, network
+configuration, etc. please file an issue in our [Issue Tracker][vvt].
 
 ## Appendix A: Working with Docker
 
-TBD
+We like Docker for service deployment, and are building at suite of reusable
+docker services at [Casmacc.io][csm].
+
+To do a quick test on a Docker machine:
+
+    TERMINAL1> docker run -p 3060:80 casmacc/html_helloworld
+    TERMINAL2> docker run -p 3061:80 casmacc/sinatra_helloworld
+    TERMINAL3> docker run -p 3062:80 casmacc/phoenix_helloworld
+    TERMINAL4> curl localhost:3060
+    TERMINAL4> curl localhost:3061
+    TERMINAL4> curl localhost:3062
 
 ## Appendix B: Working with Bare-Metal Hosts (BMH)
 
@@ -119,16 +127,12 @@ Steps:
 
 ### SSH Access
 
-Use SSH Jump Host
-
-    ssh -J <metalhost> <vm>
-
-Todo:
-
-- Setup a 'jump' user on the metalhost with a shared passwd
-  `ssh -J jump@metalhost.com <vm>`
+Use SSH Jump Host: `ssh -J admin@<metalhost> <vm>`
 
 ### Nginx Proxy
+
+Http Proxy from the Host machine to VM is [work-in-progress][ngi], based on our
+existing [Nginx Proxy][ngp].
 
 - Phase 1: HostURL with port number (should work now)
 - Phase 2: Use simple NGINX reverse proxy, Docker services in a VM (should work now)
@@ -139,20 +143,27 @@ The modified nginx-proxy could route to:
 - a port on localhost
 - an IP address and port
 
-### Other TODOs
-
-- backups 
-- autostart VMs
-
 ## Appendix C: Resources
 
-- [Vagrant](http://vagrantup.com)
-- [VirtualBox](https://www.virtualbox.org/)
-- [Machine Images](https://app.vagrantup.com/bugmark)
-- [Vagrantfile Repo](https://github.com/andyl/VVM)
-- [Ansible Roles](https://github.com/andyl/x-ansible)
-- [Issue Tracker](https://github.com/andyl/VVM/issues) 
+- [Git][git]
+- [Vagrant][vgr]
+- [VirtualBox][box]
+- [Machine Images][vgc]
+- [Vagrantfile Repo][vvr]
+- [Vagrantfile Repo Tracker][vvt]
+- [Ansible][ans]
+- [Ansible Roles][anx]
+- [Casmacc.io][csm]
+- [Nginx Proxy][ngp]
 
-[1]: https://github.com/andyl/x-ansible 
-[2]: https://
-
+[git]: https://git-scm.com
+[vvr]: https://github.com/andyl/VVM
+[vvt]: https://github.com/andyl/VVM/issues
+[ans]: https://www.ansible.com/
+[anx]: https://github.com/andyl/x-ansible 
+[vgr]: https://vagrantup.com
+[vgc]: https://app.vagrantup.com/bugmark
+[box]: https://www.virtualbox.org
+[csm]: https://casmacc.io
+[ngp]: https://github.com/casmacc/nginx_proxy
+[ngi]: https://github.com/andyl/VVM/issues/5
