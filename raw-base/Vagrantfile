@@ -24,6 +24,6 @@ Vagrant.configure("2") do |config|
   config.vm.provision "ansible_local" do |ansible|
     ansible.install = false
     ansible.provisioning_path = "/vagrant/ANSIBLE"
-    ansible.playbook = "playbooks/base.yml"
+    ansible.playbook = "playbooks/raw_base.yml"
   end
 end
