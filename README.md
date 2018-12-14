@@ -46,10 +46,10 @@ change the `provisioning_path`.
 Find pre-packaged machine images on our [Vagrant Cloud][vgc]
 
 Machine Profiles:
-- base - the simplest base machine
-- devmin - has language runtimes and editors
-- devmax - has devmin plus Docker, Postgres, Influx, Grafana, etc.
-- docker - has devmin plus Docker
+- `base` - the simplest base machine
+- `devmin` - has language runtimes and editors
+- `devmax` - has `devmin` plus Docker, Postgres, Influx, Grafana, etc.
+- `docker` - has `devmin` plus Docker
 
 For each profile, we have two variants:
 - RAW MACHINES start with a blank machine and are provisioned at boot time.
@@ -91,9 +91,9 @@ docker services at [Casmacc.io][csm].
 
 Do a quick test on a Docker machine:
 
-    TERMINAL1> docker run -p 3060:80 casmacc/html_helloworld
-    TERMINAL2> docker run -p 3061:80 casmacc/sinatra_helloworld
-    TERMINAL3> docker run -p 3062:80 casmacc/phoenix_helloworld
+    TERMINAL1> docker run -p 3060:80   casmacc/html_helloworld
+    TERMINAL2> docker run -p 3061:3090 casmacc/sinatra_helloworld
+    TERMINAL3> docker run -p 3062:4000 casmacc/phoenix_helloworld
     TERMINAL4> curl localhost:3060
     TERMINAL4> curl localhost:3061
     TERMINAL4> curl localhost:3062
