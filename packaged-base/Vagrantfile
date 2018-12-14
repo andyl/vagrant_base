@@ -17,9 +17,9 @@ Vagrant.configure("2") do |config|
     guest.ssh.insert_key = false
   end
 
-  config.vm.provision "shell", inline: <<-SHELL
-    source <(curl -sL #{BOOTSTRAP_URL})
-  SHELL
+  # config.vm.provision "shell", inline: <<-SHELL
+  #   source <(curl -sL #{BOOTSTRAP_URL})
+  # SHELL
 
   # config.vm.provision "ansible_local" do |ansible|
   #   ansible.install = false
