@@ -4,7 +4,7 @@ This repo provides linux virtual machines for development.  Host machine can be
 your desktop (linux, mac or windows) or a bare-metal server in the datacenter.
 
 To get started, install [Git][git], [Vagrant][vgr] and [VirtualBox][box] on
-your host.  Then to create and provision a new development environment:
+your host.  Then to create a new virtual machine:
 
     git clone https://github.com/andyl/VVM
     cd VVM/packaged_base
@@ -13,7 +13,7 @@ your host.  Then to create and provision a new development environment:
 
 ## Goals
 
-Virtual machines give flexibility:
+Speed and flexibility:
 - flexible filesharing, port-forwarding, DNS & network configuration
 - simple to clone/copy/backup your whole machine
 - you can move your VM between desktop and datacenter
@@ -43,13 +43,13 @@ change the `provisioning_path`.
 
 ## Packaged Machines
 
-We publish machine images on our [Vagrant Cloud][vgc]
+Find pre-packaged machine images on our [Vagrant Cloud][vgc]
 
 Machine Profiles:
 - base - the simplest base machine
-- devmin - language runtimes and editors
-- devmax - devmin plus Docker, Postgres, Influx, Grafana, etc.
-- docker - devmin plus Docker
+- devmin - has language runtimes and editors
+- devmax - has devmin plus Docker, Postgres, Influx, Grafana, etc.
+- docker - has devmin plus Docker
 
 For each profile, we have two variants:
 - RAW MACHINES start with a blank machine and are provisioned at boot time.
@@ -72,7 +72,7 @@ Vagrant Cloud, or keep it local for private use.
 
 ## Support
 
-Contact Andy if you have questions or would like a hand getting up to speed.  
+Contact Andy for support.
 
 Here are some things we can try together:
 - custom base boxes for streamlined provisioning
@@ -82,15 +82,14 @@ Here are some things we can try together:
 - moving a VM from your desktop to the datacenter
 - pair-programming from your desktop VM across the firewall
 
-When you find issues with VM configurations, port settings, network
-configuration, etc. please file an issue in our [Issue Tracker][vvt].
+Please post issue to our [Issue Tracker][vvt].
 
 ## Appendix A: Working with Docker
 
 We like Docker for service deployment, and are building at suite of reusable
 docker services at [Casmacc.io][csm].
 
-To do a quick test on a Docker machine:
+Do a quick test on a Docker machine:
 
     TERMINAL1> docker run -p 3060:80 casmacc/html_helloworld
     TERMINAL2> docker run -p 3061:80 casmacc/sinatra_helloworld
@@ -114,7 +113,7 @@ scale a VM resource up or down as needed for demos and experiments.
 The bare-metal host should run Ubuntu 18.04 and be provisioned with: `git`,
 `docker`, `vagrant`, `nginx` and `docker`.  
 
-The bare-metal host reqires a fixed IP address.
+The BMH reqires a fixed IP address.
 
 Setup a DNS entry to link your root-doman with your IP address, and add a
 wildcard subdomain entry that points to the same IP.
