@@ -111,7 +111,7 @@ scale a VM resource up or down as needed for demos and experiments.
 ### Configuring the Bare-Metal Host
 
 The bare-metal host should run Ubuntu 18.04 and be provisioned with: `git`,
-`docker`, `vagrant`, `nginx` and `docker`.  
+`docker`, `vagrant` and `virtualbox`.  
 
 The BMH reqires a fixed IP address.
 
@@ -121,8 +121,8 @@ wildcard subdomain entry that points to the same IP.
 ### Setting up the VM ON the BMH
 
 Steps:
-- create server
-- add IP to /etc/hosts
+- create Guest
+- add Guest IP to /etc/hosts
 
 ### SSH Access
 
