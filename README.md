@@ -82,7 +82,7 @@ Here are some things we can try together:
 - moving a VM from your desktop to the datacenter
 - pair-programming from your desktop VM across the firewall
 
-Please post issue to our [Issue Tracker][vvt].
+Please post bugs and questions to our [Issue Tracker][vvt].
 
 ## Appendix A: Working with Docker
 
@@ -130,17 +130,10 @@ Use SSH Jump Host: `ssh -J admin@<metalhost> <vm>`
 
 ### Nginx Proxy
 
-Http Proxy from the Host machine to VM is [work-in-progress][ngi], based on our
-existing [Nginx Proxy][ngp].
-
-- Phase 1: HostURL with port number (should work now)
-- Phase 2: Use simple NGINX reverse proxy, Docker services in a VM (should work now)
-- Phase 3: Modify nginx-proxy to route from subdomain (future)
-
-The modified nginx-proxy could route to:
-
-- a port on localhost
-- an IP address and port
+Use the Casmacc [Nginx-Proxy][ngp] to route subdomains (like
+`intern.bugmark.tech`) to guest VMs.  See the [README
+Notes](https://github.com/casmacc/nginx_proxy#proxy-to-a-vm-guest) for
+configuration information.
 
 ## Appendix C: Resources
 
