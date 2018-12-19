@@ -108,6 +108,12 @@ Once this is working, we should be in good shape.  We can get a bare-metal
 server with 8 cores and 96GB ram for ~$50 month.  With this resource, we could
 scale a VM resource up or down as needed for demos and experiments.
 
+Note that both Google Compute Engine and Azure support a `Nested
+Virtualization` option that allows you to run Virtual Box.  The Nested
+Virtualization machines run about $100/month for a machine with decent
+performance.  AWS also has bare metal servers that cost in the range of $5-7
+per hour.
+
 ### Configuring the Bare-Metal Host
 
 The bare-metal host should run Ubuntu 18.04 and be provisioned with: `git`,
@@ -135,7 +141,15 @@ Use the Casmacc [Nginx-Proxy][ngp] to route subdomains (like
 Notes](https://github.com/casmacc/nginx_proxy#proxy-to-a-vm-guest) for
 configuration information.
 
-## Appendix C: Resources
+## Appendix C: Binary Large Objects
+
+We use a handful of pre-compiled executables, packages and tar files.  These
+are large binary objects, not well suited for management with Git.  For now
+we're simply posting the objects onto a webserver with `rsync`, and making the
+objects available for download during Ansible provisioning.  The files are
+currently served [here](http://bugmark.tech:8080/cblob).
+
+## Appendix D: Resources
 
 - [Git][git]
 - [Vagrant][vgr]
