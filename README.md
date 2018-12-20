@@ -3,7 +3,7 @@
 This repo provides linux virtual machines for development.  Host machine can be
 your desktop (linux, mac or windows) or a bare-metal server in the datacenter.
 
-To get started, install [Git][git], [Vagrant][vgr] and [VirtualBox][box] on
+To get started, install [Git][git], [Vagrant][vgr] and [VirtualBox 5.2][box] on
 your host.  Then to create a new virtual machine:
 
     git clone https://github.com/andyl/VVM
@@ -72,9 +72,7 @@ Vagrant Cloud, or keep it local for private use.
 
 ## Support
 
-Contact Andy for support.
-
-Here are some things we can try together:
+Contact Andy for support.  Here are some things we can try together:
 - custom base boxes for streamlined provisioning
 - VM customzation for performance
 - mounting source directories to use GUI editors on host machine
