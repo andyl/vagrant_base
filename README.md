@@ -152,30 +152,35 @@ currently served [here](http://files.casmacc.plus).
 The `devmin` and `devmax` images are configured with tools for remote
 collaboration and pair-programming.
 
+## Online Collaboration
+
 ### SSH-CHAT
 
-[SSH-CHAT][scg] is a simple, scriptable chat service that works from any terminal.
+Connect to the SSH-Chat server from the command line. Run `sshchat`.
 
-A public SSH-CHAT server is hosted on `casmacc.plus`.  Use this command:
+Note: you can setup a project-specific ssh-chat service using [SSH-Chat Docker][scd]
 
-    ssh casmacc.plus -p 9000
-
-You can setup a project-specific ssh-chat service using [SSH-Chat Docker][2]
-
-[scg]: http://github.com/shazow/ssh-chat
 [scd]: http://github.com/casmacc/ssh-chat
 
-### Wormhole
+### TMATE Terminal Sharing
 
-[Wormhole][wrm] is a tool to transfer files securely.  
+Session host:
+- start a tmate session `tmate_start`
+- publish the session address `tmate_address`
+- the session address is auto-published onto SSH-Chat
 
-[wrm]: https://github.com/warner/magic-wormhole
+Session participant:
+- enter the ssh command with session address on your command line
 
-### TMATE
+### WORMHOLE File Transfer
 
-Use [TMATE] for terminal sharing and pair programming.
+Sender:
+- type `wormhole send <filename>`
+- note the wormhole code
 
-[tmt]: https://tmate.io
+Receiver:
+- get the wormhole code from the sender
+- type `wormhole receive <code>`
 
 ## Appendix E: Resources
 
