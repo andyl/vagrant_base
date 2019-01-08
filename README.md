@@ -70,6 +70,9 @@ Your new base box will be written to `package.box`.  You can use this new base
 box like any other Vagrant box.  You can share your base box publically on
 Vagrant Cloud, or keep it local for private use.
 
+To share on the Vagrant Cloud, visit their [website][vgc] and use their
+publishing tools.
+
 ## Support
 
 Contact Andy for support.  Here are some things we can try together:
