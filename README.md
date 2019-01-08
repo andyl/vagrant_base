@@ -145,9 +145,39 @@ We use a handful of pre-compiled executables, packages and tar files.  These
 are large binary objects, not well suited for management with Git.  For now
 we're simply posting the objects onto a webserver with `rsync`, and making the
 objects available for download during Ansible provisioning.  The files are
-currently served [here](http://bugmark.tech:8080/cblob).
+currently served [here](http://files.casmacc.plus).
 
-## Appendix D: Resources
+## Appendix D: Collaboration
+
+The `devmin` and `devmax` images are configured with tools for remote
+collaboration and pair-programming.
+
+### SSH-CHAT
+
+[SSH-CHAT][scg] is a simple, scriptable chat service that works from any terminal.
+
+A public SSH-CHAT server is hosted on `casmacc.plus`.  Use this command:
+
+    ssh casmacc.plus -p 9000
+
+You can setup a project-specific ssh-chat service using [SSH-Chat Docker][2]
+
+[scg]: http://github.com/shazow/ssh-chat
+[scd]: http://github.com/casmacc/ssh-chat
+
+### Wormhole
+
+[Wormhole][wrm] is a tool to transfer files securely.  
+
+[wrm]: https://github.com/warner/magic-wormhole
+
+### TMATE
+
+Use [TMATE] for terminal sharing and pair programming.
+
+[tmt]: https://tmate.io
+
+## Appendix E: Resources
 
 - [Git][git]
 - [Vagrant][vgr]
