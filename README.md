@@ -152,10 +152,8 @@ currently served [here](http://files.casmacc.plus).
 
 ## Appendix D: Collaboration
 
-The `devmin` and `devmax` images are configured with tools for remote
-collaboration and pair-programming.
-
-## Online Collaboration
+The `devmin` image is configured with tools for remote collaboration and
+pair-programming.
 
 ### SSH-CHAT
 
@@ -185,7 +183,15 @@ Receiver:
 - get the wormhole code from the sender
 - type `wormhole receive <code>`
 
-## Appendix E: Resources
+## Appendix E: Host/Guest Shared Files
+
+The host directory is mounted on the guest at `/vagrant`.
+
+If you want to share other directories, edit the `Vagrantfile` and follow the [synced-folder guide][sfg].
+
+[sfg]: https://www.vagrantup.com/docs/synced-folders/basic_usage.html
+
+## Appendix F: Resources
 
 - [Git][git]
 - [Vagrant][vgr]
