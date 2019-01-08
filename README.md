@@ -87,10 +87,10 @@ Please post bugs and questions to our [Issue Tracker][vvt].
 
 ## Appendix A: Working with Docker
 
-We like Docker for service deployment, and are building at suite of reusable
+We like Docker for service deployment, and publish a suite of reusable
 docker services at [Casmacc.io][csm].
 
-Do a quick test on a Docker machine:
+Do a quick test on a Docker-enabled host:
 
     TERMINAL1> docker run -p 3060:80   casmacc/html_helloworld
     TERMINAL2> docker run -p 3061:3090 casmacc/sinatra_helloworld
@@ -137,7 +137,7 @@ Use SSH Jump Host: `ssh -J admin@<metalhost> <vm>`
 
 ### Nginx Proxy
 
-Use the Casmacc [Nginx-Proxy][ngp] to route subdomains (like
+Use the Casmacc [Nginx-Proxy][ngp] container to route subdomains (like
 `intern.bugmark.tech`) to guest VMs.  See the [README
 Notes](https://github.com/casmacc/nginx_proxy#proxy-to-a-vm-guest) for
 configuration information.
