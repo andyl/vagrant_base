@@ -150,7 +150,7 @@ We use a handful of pre-compiled executables, packages and tar files.  These
 are large binary objects, not well suited for management with Git.  For now
 we're simply posting the objects onto a webserver with `rsync`, and making the
 objects available for download during Ansible provisioning.  The files are
-currently served [here](http://files.casmacc.plus).
+currently served [here](http://files.casmacc.net).
 
 ## Appendix D: Collaboration
 
@@ -192,6 +192,24 @@ The host directory is mounted on the guest at `/vagrant`.
 If you want to share other directories, edit the `Vagrantfile` and follow the [synced-folder guide][sfg].
 
 [sfg]: https://www.vagrantup.com/docs/synced-folders/basic_usage.html
+
+## Appendix F: Collaboration on a Mac Host
+
+You can use SSH-Chat, Tmate and Wormhole on your Mac host.  
+
+SSH-Chat just works - try `$ssh casmacc.net -p 9000`.
+
+To install Wormhole and Tmate, open a terminal then:
+
+    $ sudo easy_install pip
+    $ pip install magic-wormhole
+    $ brew install tmate
+
+To start Tmate, type `$ tmate`.  Then from within tmate, type:
+
+    $ echo -e $(tmate show-messages) "\r" | ssh casmacc.net -p 9000
+
+Your partner will be able to find the attachment code on sshchat and connect.
 
 ## Appendix F: Resources
 
