@@ -11,13 +11,13 @@ your host.  Then to create a new virtual machine:
     vagrant up
     vagrant ssh 
 
-Note: the first time you run the `vagrant up` command, a large (~2.5GB) machine
-image will be downloaed.  Once downloaded, creating new machines from this
-image takes a minute or two.
+The first time you run the `vagrant up` command, a large (~2.5GB) machine image
+will be downloaed.  Once downloaded, creating new machines from this image
+takes a minute or two.
 
 ## Goals
 
-Speed and flexibility:
+Fast developer onboarding and operational flexibility:
 - flexible filesharing, port-forwarding, DNS & network configuration
 - simple to clone/copy/backup your whole machine
 - you can move your VM between desktop and datacenter
@@ -55,13 +55,13 @@ Machine Profiles:
 
 For each profile, we have two variants:
 - RAW MACHINES start with a blank machine and are provisioned at boot time.
-  Provisioning takes 5-60 mins. 
+  Provisioning takes 5-20 mins. 
 - PACKAGED MACHINES are pre-provisioned to download and run.  Machine images
   are 1-3GB.  Create new machines in about 90 seconds.
 
-## How to prepare a new Packaged Machine
+## How to create a new Packaged Machine
 
-Run these commands:
+First create a custom-configured live VM.  Then run these commands:
 
     # get the name of the base-box you want to package
     vboxmanage list vms
