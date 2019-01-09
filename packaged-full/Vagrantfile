@@ -8,7 +8,7 @@ KEYTEXT    = File.exist?(KEYFILE) ? File.read(KEYFILE) : ""
 SCRIPT_URL = "raw.github.com/andyl/x-ansible/master/bin/bootstrap.bash"
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "bugmark/packaged_devmax"
+  config.vm.box = "bugmark/packaged_full"
   config.vm.synced_folder ".", "/vagrant", owner: "vagrant"
 
   config.vm.network "public_network", bridge: "eno1", 

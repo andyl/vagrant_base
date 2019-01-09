@@ -11,6 +11,10 @@ your host.  Then to create a new virtual machine:
     vagrant up
     vagrant ssh 
 
+Note: the first time you run the `vagrant up` command, a large (~2.5GB) machine
+image will be downloaed.  Once downloaded, creating new machines from this
+image takes a minute or two.
+
 ## Goals
 
 Speed and flexibility:
@@ -19,9 +23,9 @@ Speed and flexibility:
 - you can move your VM between desktop and datacenter
 - you can run many independent VMs on a production host
 
-We provide a set of VM images that are pre-loaded with language runtimes
-(Ruby, NodeJS, Python), editors (vim), databases (SqLite, Postgres, Redis),
-etc.  The machine images are extensible and customizable.
+We provide VM images that are pre-loaded with language runtimes (Ruby, NodeJS,
+Python), editors (vim), databases (SqLite, Postgres, Redis), etc.  The machine
+images are extensible and customizable.
 
 This tooling is optimized for research and development.  For high-volume
 production, use performance-oriented tools like KVM / Firecracker / Docker.
@@ -47,9 +51,7 @@ Find pre-packaged machine images on our [Vagrant Cloud][vgc]
 
 Machine Profiles:
 - `base` - the simplest base machine
-- `devmin` - has language runtimes and editors
-- `devmax` - has `devmin` plus Docker, Postgres, Influx, Grafana, etc.
-- `docker` - has `devmin` plus Docker
+- `full` - has language runtimes and editors, databases and Docker support
 
 For each profile, we have two variants:
 - RAW MACHINES start with a blank machine and are provisioned at boot time.
@@ -152,7 +154,7 @@ currently served [here](http://files.casmacc.plus).
 
 ## Appendix D: Collaboration
 
-The `devmin` image is configured with tools for remote collaboration and
+The `full` image is configured with tools for remote collaboration and
 pair-programming.
 
 ### SSH-CHAT
