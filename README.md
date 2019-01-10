@@ -12,8 +12,8 @@ your host.  Then to create a new virtual machine:
     vagrant ssh 
 
 The first time you run the `vagrant up` command, a large (~2.5GB) machine image
-will be downloaed.  Once downloaded, creating new machines from this image
-takes a minute or two.
+will be downloaded.  After that, creating new machines from this image takes a
+minute or two.
 
 ## Goals
 
@@ -27,7 +27,7 @@ We provide VM images that are pre-loaded with language runtimes (Ruby, NodeJS,
 Python), editors (vim), databases (SqLite, Postgres, Redis), etc.  The machine
 images are extensible and customizable.
 
-This tooling is optimized for research and development.  For high-volume
+This tooling is optimized for research and software development.  For
 production, use performance-oriented tools like KVM / Firecracker / Docker.
 
 ## Ansible for Provisioning
@@ -103,13 +103,11 @@ Do a quick test on a Docker-enabled host:
 
 ## Appendix B: Working with Bare-Metal Hosts (BMH)
 
-Sometimes we'd like to put prototype webapps on a VM for public access.  To do
-this, we'll use a bare-metal host in a datacenter.  It will take a bit of
-configuration to get this working smoothly.
+VMs can run in a Bare-Metal host in a datacenter.
 
-Once this is working, we should be in good shape.  We can get a bare-metal
-server with 8 cores and 96GB ram for ~$50 month.  With this resource, we could
-scale a VM resource up or down as needed for demos and experiments.
+We can get a bare-metal server with 16 cores and 96GB ram for ~$50 month.  With
+this capacity, we could scale a VM up or down as needed for demos and
+experiments.
 
 Note that both Google Compute Engine and Azure support a `Nested
 Virtualization` option that allows you to run Virtual Box.  The Nested
@@ -120,22 +118,16 @@ per hour.
 ### Configuring the Bare-Metal Host
 
 The bare-metal host should run Ubuntu 18.04 and be provisioned with: `git`,
-`docker`, `vagrant` and `virtualbox`.  
-
-The BMH reqires a fixed IP address.
+`docker`, `vagrant` and `virtualbox`.  The BMH reqires a fixed IP address.
 
 Setup a DNS entry to link your root-doman with your IP address, and add a
 wildcard subdomain entry that points to the same IP.
 
-### Setting up the VM ON the BMH
-
-Steps:
-- create Guest
-- add Guest IP to /etc/hosts
-
 ### SSH Access
 
-Use SSH Jump Host: `ssh -J admin@<metalhost> <vm>`
+Setup your VM for ssh access on a unique port.  Then:
+
+    ssh <host> -p <VM-port>
 
 ### Nginx Proxy
 
@@ -189,11 +181,20 @@ Receiver:
 
 The host directory is mounted on the guest at `/vagrant`.
 
-If you want to share other directories, edit the `Vagrantfile` and follow the [synced-folder guide][sfg].
+If you want to share other directories, edit the `Vagrantfile` and follow the
+[synced-folder guide][sfg].
 
 [sfg]: https://www.vagrantup.com/docs/synced-folders/basic_usage.html
 
-## Appendix F: Collaboration on a Mac Host
+## Appendix F: Remote Shared Files
+
+If your VM is running on a bare-metal host in a datacenter, you can use `sshfs`
+to mount a VM filesystem locally.
+
+    mkdir ./mountpoint
+    sshfs [user@]<BARE-METAL-DOMAIN> ./mountpoint -p <VM-port>
+
+## Appendix G: Collaboration on a Mac Host
 
 You can use SSH-Chat, Tmate and Wormhole on your Mac host.  
 
@@ -211,7 +212,7 @@ To start Tmate, type `$ tmate`.  Then from within tmate, type:
 
 Your partner will be able to find the attachment code on sshchat and connect.
 
-## Appendix F: Resources
+## Appendix H: Resources
 
 - [Git][git]
 - [Vagrant][vgr]
