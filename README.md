@@ -210,7 +210,20 @@ To start Tmate, type `$ tmate`.  Then from within tmate, type:
 
 Your partner will be able to find the attachment code on sshchat and connect.
 
-## Appendix H: Resources
+## Appendix H: Virtual Machines and File-Watchers
+
+Oftentimes you'll use test-runners and build tools on your VM that are built on
+file-watchers like `grunt` and `guard`.
+
+Unfortunatly the guest OS will not be notified when a file is changed in a folder shared with the host.
+
+To resolve this problem, install plugin `vagrant-notify-forwarder`.
+
+    $ vagrant plugin install vagrant-notify-forwarder
+
+Reload your VM after installing the plugin...
+
+## Appendix I: Resources
 
 - [Git][git]
 - [Vagrant][vgr]
