@@ -196,15 +196,13 @@ to mount a VM filesystem locally.
 
 ## Appendix G: Collaboration on a Mac Host
 
-You can use SSH-Chat, Tmate and Wormhole on your Mac host.  
+You can use SSH-Chat and Tmate on your Mac host.  
 
-SSH-Chat just works - try `$ssh casmacc.net -p 9000`.
+This is useful if you'd like help with setting up your VM.
 
-To install Wormhole and Tmate, open a terminal then:
+SSH-Chat just works, open a terminal then `$ ssh casmacc.net -p 9000`.
 
-    $ sudo easy_install pip
-    $ pip install magic-wormhole
-    $ brew install tmate
+To install Tmate, open a terminal then `$ brew install tmate`.
 
 To start Tmate, type `$ tmate`.  Then from within tmate, type:
 
