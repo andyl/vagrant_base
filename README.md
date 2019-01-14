@@ -23,9 +23,9 @@ Fast developer onboarding and operational flexibility:
 - you can move your VM between desktop and datacenter
 - you can run many independent VMs on a production host
 
-We provide VM images that are pre-loaded with language runtimes (Ruby, NodeJS,
-Python), editors (vim), databases (SqLite, Postgres, Redis), etc.  The machine
-images are extensible and customizable.
+Our VM images are pre-loaded with language runtimes (Ruby, NodeJS, Python),
+editors (vim), databases (SqLite, Postgres, Redis), etc.  The machine images
+are extensible and customizable.
 
 This tooling is optimized for research and software development.  For
 production, use performance-oriented tools like KVM / Firecracker / Docker.
