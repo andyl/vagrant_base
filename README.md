@@ -160,11 +160,11 @@ Note: you can setup a project-specific ssh-chat service using [SSH-Chat Docker][
 ### TMATE Terminal Sharing
 
 Session host:
-- start a tmate session `tmate`
+- start a tmate session `tmate_start`
 - publish the session address `tmate_address`
 - the session address is auto-published onto SSH-Chat
 
-Session participant:
+Session guest:
 - enter the ssh command with session address on your command line
 
 ### WORMHOLE File Transfer
