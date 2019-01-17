@@ -160,7 +160,7 @@ Note: you can setup a project-specific ssh-chat service using [SSH-Chat Docker][
 ### TMATE Terminal Sharing
 
 Session host:
-- start a tmate session `tmate_start`
+- start a tmate session `tmate`
 - publish the session address `tmate_address`
 - the session address is auto-published onto SSH-Chat
 
