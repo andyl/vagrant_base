@@ -223,7 +223,19 @@ To resolve this problem, install plugin `vagrant-notify-forwarder`.
 
 Reload your VM after installing the plugin...
 
-## Appendix I: Resources
+## Appendix I: VM Performance Tips
+
+### Fast DNS Lookups
+
+If DNS resolution is slow, try specifying a Google nameserver in `/etc/resolve.conf`:
+
+    nameserver 8.8.8.8
+
+Then restart the network:
+
+    sudo systemctl restart NetworkManager
+
+## Appendix J: Resources
 
 - [Git][git]
 - [Vagrant][vgr]
