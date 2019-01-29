@@ -3,18 +3,6 @@
 This repo provides linux virtual machines for development.  Host machine can be
 your desktop (linux, mac or windows) or a bare-metal server in the datacenter.
 
-To get started, install [Git][git], [Vagrant][vgr] and [VirtualBox 5.2][box] on
-your host.  Then to create a new virtual machine:
-
-    git clone https://github.com/andyl/VVM
-    cd VVM/packaged_full
-    vagrant up
-    vagrant ssh 
-
-The first time you run the `vagrant up` command, a large (~2.5GB) machine image
-will be downloaded.  After that, creating new machines from this image takes a
-minute or two.
-
 ## Goals
 
 Fast developer onboarding and operational flexibility:
@@ -30,6 +18,33 @@ are extensible and customizable.
 This tooling is optimized for research and software development.  For
 production, use performance-oriented tools like KVM / Firecracker / Docker.
 
+## Getting Started
+
+To get started, install [Git][git], [Vagrant][vgr] and [VirtualBox 5.2][box] on
+your host.  Then to create a new virtual machine:
+
+    git clone https://github.com/andyl/VVM
+    cd VVM/packaged_full
+    vagrant up
+    vagrant ssh 
+
+The first time you run the `vagrant up` command, a large (~2.5GB) machine image
+will be downloaded.  After that, creating new machines from this image takes a
+minute or two.
+
+## Packaged Machine Images
+
+Find pre-packaged machine images on our [Vagrant Cloud][vgc]
+
+Machine Profiles:
+- `base` - the simplest base machine
+- `full` - has language runtimes and editors, databases and Docker support
+
+Machine images are updated periodically.  To get the latest version:
+
+    cd VVM/packaged_full
+    vagrant box update
+
 ## Ansible for Provisioning
 
 Machine provisioning is done with [Ansible][ans].  Study the [Ansible
@@ -44,20 +59,6 @@ playbook.  This directory is re-written every time the provisioner runs.
 If you want to customize the Ansible provisioning process, copy the `ANSIBLE`
 directory to another directory (like `ansible`), then edit the `Vagrantfile` to
 change the `provisioning_path`.
-
-## Packaged Machines
-
-Find pre-packaged machine images on our [Vagrant Cloud][vgc]
-
-Machine Profiles:
-- `base` - the simplest base machine
-- `full` - has language runtimes and editors, databases and Docker support
-
-For each profile, we have two variants:
-- RAW MACHINES start with a blank machine and are provisioned at boot time.
-  Provisioning takes 5-20 mins. 
-- PACKAGED MACHINES are pre-provisioned to download and run.  Machine images
-  are 1-3GB.  Create new machines in about 90 seconds.
 
 ## How to create a new Packaged Machine
 
