@@ -7,6 +7,8 @@ KEYFILE    = File.expand_path("~/.ssh/id_rsa.pub")
 KEYTEXT    = File.exist?(KEYFILE) ? File.read(KEYFILE) : ""
 SCRIPT_URL = "raw.github.com/andyl/x-ansible/master/bin/bootstrap.bash"
 
+def port_map(guest, host) {guest: guest, host: host, auto_correct: true} end
+
 Vagrant.configure("2") do |config|
   config.vm.box = "bugmark/packaged_full"
   config.vm.synced_folder ".", "/vagrant", owner: "vagrant"
@@ -14,6 +16,11 @@ Vagrant.configure("2") do |config|
   config.vm.network "public_network", bridge: "eno1", 
     use_dhcp_assigned_default_route: true
   
+  config.vm.network "forwarded_port", pmap(  22, 20022)
+  config.vm.network "forwarded_port", pmap(  80, 20080)
+  config.vm.network "forwarded_port", pmap(3000, 23000)
+  config.vm.network "forwarded_port", pmap(4567, 24567)
+
   config.vm.define FULL_NAME do |guest|
     guest.vm.hostname = FULL_NAME
     guest.ssh.insert_key = false
