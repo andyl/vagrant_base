@@ -19,6 +19,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", port_map(  22, 20022)
   config.vm.network "forwarded_port", port_map(  80, 20080)
   config.vm.network "forwarded_port", port_map(3000, 23000)
+  config.vm.network "forwarded_port", port_map(3333, 23333)
   config.vm.network "forwarded_port", port_map(4567, 24567)
 
   config.vm.define FULL_NAME do |guest|
