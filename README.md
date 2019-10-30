@@ -20,7 +20,7 @@ production, use performance-oriented tools like KVM / Firecracker / Docker.
 
 ## Getting Started
 
-To get started, install [Git][git], [Vagrant][vgr] and [VirtualBox 5.2][box] on
+To get started, install [Git][git], [Vagrant][vgr] and [VirtualBox 6.0][box] on
 your host.  Then to create a new virtual machine:
 
     git clone https://github.com/andyl/VVM
