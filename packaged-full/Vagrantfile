@@ -1,26 +1,26 @@
-#vi: set ft=ruby :
+# vi: set ft=ruby :
 
 GUEST_NAME = Dir.pwd.split('/').last
-HOST_NAME  = ENV["SYSNAME"] || "localhost"
+HOST_NAME  = ENV['SYSNAME'] || 'localhost'
 FULL_NAME  = GUEST_NAME + '.' + HOST_NAME
-KEYFILE    = File.expand_path("~/.ssh/id_rsa.pub")
-KEYTEXT    = File.exist?(KEYFILE) ? File.read(KEYFILE) : ""
-SCRIPT_URL = "raw.github.com/andyl/x-ansible/master/bin/bootstrap.bash"
+KEYFILE    = File.expand_path('~/.ssh/id_rsa.pub')
+KEYTEXT    = File.exist?(KEYFILE) ? File.read(KEYFILE) : ''
+SCRIPT_URL = 'raw.github.com/andyl/x-ansible/master/bin/bootstrap.bash'.freeze
 
 def port_map(guest, host) {guest: guest, host: host, auto_correct: true} end
 
-Vagrant.configure("2") do |config|
-  config.vm.box = "bugmark/packaged_full"
-  config.vm.synced_folder ".", "/vagrant", owner: "vagrant"
+Vagrant.configure('2') do |config|
+  config.vm.box = 'bugmark/packaged_full'
+  config.vm.synced_folder '.', '/vagrant', owner: 'vagrant'
 
-  config.vm.network "public_network", bridge: "eno1", 
+  config.vm.network 'public_network', bridge: 'eno1',
     use_dhcp_assigned_default_route: true
-  
-  config.vm.network "forwarded_port", port_map(  22, 20022)
-  config.vm.network "forwarded_port", port_map(  80, 20080)
-  config.vm.network "forwarded_port", port_map(3000, 23000)
-  config.vm.network "forwarded_port", port_map(3333, 23333)
-  config.vm.network "forwarded_port", port_map(4567, 24567)
+
+  config.vm.network 'forwarded_port', port_map(  22, 20_022)
+  config.vm.network 'forwarded_port', port_map(  80, 20_080)
+  config.vm.network 'forwarded_port', port_map(3000, 23_000)
+  config.vm.network 'forwarded_port', port_map(3333, 23_333)
+  config.vm.network 'forwarded_port', port_map(4567, 24_567)
 
   config.vm.define FULL_NAME do |guest|
     guest.vm.hostname = FULL_NAME
