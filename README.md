@@ -16,7 +16,7 @@ editors (vim), databases (SqLite, Postgres, Redis), etc.  The machine images
 are extensible and customizable.
 
 This tooling is optimized for research and software development.  For
-production, use performance-oriented tools like KVM / Firecracker / Docker.
+production, use Docker containers.
 
 ## Getting Started
 
