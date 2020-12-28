@@ -1,5 +1,22 @@
 # vi: set ft=ruby :
 
-Vagrant.configure("2") do |config|
-  config.vm.box = "jhakonen/windows-10-n-pro-en-x86_64"
+# https://app.vagrantup.com/jhakonen/boxes/windows-10-n-pro-en-x86_64
+#
+# The virtual directory c:/vagrant is mapped to this directory.  
+# (Network/vboxsvr/vagrant)
+
+Vagrant.configure('2') do |config|
+  config.vm.box = 'jhakonen/windows-10-n-pro-en-x86_64'
+  config.vm.provider 'virtualbox' do |vb|
+    vb.cpus = 4
+    vb.memory = 2048
+    vb.name = "Vwin"
+    vb.customize ['modifyvm', :id, '--vram', '40']
+    vb.customize ['modifyvm', :id, '--graphicscontroller', 'VBoxSVGA']
+    # vb.customize ["storageattach", :id, 
+    #               "--storagectl", "IDE", 
+    #               "--port", "0", "--device", "1", 
+    #               "--type", "dvddrive", 
+    #               "--medium", "emptydrive"]     
+  end
 end
