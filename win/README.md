@@ -11,7 +11,6 @@ VM Using Windows Guest
 
 Run `bin/getinstalls` to download installer executables
 
-
 ## Setup
 
 1. Start the machine using `vagrant up`
@@ -23,3 +22,9 @@ Run `bin/getinstalls` to download installer executables
 ## Questions
 
 - How to backup and sync data files?
+
+## Configuration
+
+To enable this on Windows 10 guests
+
+Control Panel > Power Options > Choose what the power buttons do> When I press the Power Button = Shutdown
