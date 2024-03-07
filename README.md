@@ -1,7 +1,7 @@
 # VVM - Vagrant Virtual Machines
 
-This repo provides machines for development.  Host machine can be
-your desktop (linux only) or a linux server in the datacenter.
+This repo provides machines for development.  Host machine can be your desktop
+(linux, mac, windows) or a bare-metal linux server in the datacenter.
 
 ## Goals
 
@@ -24,7 +24,7 @@ To get started, install [Git][git], [Vagrant][vgr] and [VirtualBox 7.0][box] on
 your host.  Then to create a new virtual machine:
 
     git clone https://github.com/andyl/VVM
-    cd VVM/packaged_full
+    cd VVM/<subdir>
     vagrant up
     vagrant ssh 
 

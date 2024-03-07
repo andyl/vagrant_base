@@ -1,17 +1,25 @@
 # vi: set ft=ruby :
 
+# https://app.vagrantup.com/opentable/boxes/win-2012r2-standard-amd64-nocm
+# https://app.vagrantup.com/gusztavvargadr/boxes/windows-10
 # https://app.vagrantup.com/jhakonen/boxes/windows-10-n-pro-en-x86_64
 #
 # The virtual directory c:/vagrant is mapped to this directory.  
 # (Network/vboxsvr/vagrant)
+#
+# As of 2024 Mar 06 Wed for gusztavvargadr...
+# This works with Virtualbox 6.1, but not Virtualbox 7.0
+#
+# To find alternate boxes: 
+# https://app.vagrantup.com/boxes/search
 
 Vagrant.configure('2') do |config|
-  config.vm.box = 'jhakonen/windows-10-n-pro-en-x86_64'
+  config.vm.box = 'gusztavvargadr/windows-10'
   config.vm.provider 'virtualbox' do |vb|
     vb.cpus = 4
-    vb.memory = 2048
-    vb.name = "Vwin"
-    vb.customize ['modifyvm', :id, '--vram', '150']                      # video ram
+    vb.memory = 8048
+    vb.name = "werd"
+    vb.customize ['modifyvm', :id, '--vram', '256']                      # video ram
     vb.customize ['modifyvm', :id, '--graphicscontroller', 'VBoxSVGA']   # display driver
     vb.customize ['modifyvm', :id, '--vrde', 'off']                      # remote display
     vb.customize ['modifyvm', :id, '--acpi', 'on']                       # power shutdown
