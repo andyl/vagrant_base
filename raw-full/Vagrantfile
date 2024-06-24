@@ -5,14 +5,15 @@ HOST_NAME  = ENV['SYSNAME'] || 'localhost'
 FULL_NAME  = "#{GUEST_NAME}.#{HOST_NAME}".freeze
 KEYFILE    = File.expand_path('~/.ssh/id_rsa.pub')
 KEYTEXT    = File.exist?(KEYFILE) ? File.read(KEYFILE) : ''
-SCRIPT_URL = 'raw.github.com/andyl/x-ansible/master/bin/bootstrap.bash'.freeze
+SCRIPT_URL = 'raw.github.com/andyl/x-ansible/master/ANS_VVM/bin/bootstrap.bash'.freeze
 
 # find the network device by running `ifconfig` on your host
 NETWORK_DEVICE = "enp114s0".freeze 
 
 Vagrant.configure('2') do |config|
   config.vm.box = 'generic/ubuntu2204'
-  config.vm.synced_folder '.', '/vagrant', owner: 'vagrant', group: 'vagrant'
+  config.vm.synced_folder '.',                '/vvm/config',    owner: 'vagrant', group: 'vagrant'
+  config.vm.synced_folder '~/util/x-ansible', '/vvm/x-ansible', owner: 'vagrant', group: 'vagrant'
 
   config.vm.network 'public_network', bridge: NETWORK_DEVICE,
     use_dhcp_assigned_default_route: true
@@ -37,10 +38,10 @@ Vagrant.configure('2') do |config|
     source <(curl -sL #{SCRIPT_URL})
     writekey "#{KEYTEXT}"
   SHELL
-
+  
   config.vm.provision 'ansible_local' do |ansible|
     ansible.install = false
-    ansible.provisioning_path = '/vagrant/ANSIBLE'
+    ansible.provisioning_path = '/vvm/x-ansible/ANS_VVM'
     ansible.playbook = 'playbooks/raw_full.yml'
   end
 end
