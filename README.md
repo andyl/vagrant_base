@@ -1,4 +1,4 @@
-# VVM - Vagrant Virtual Machines
+# Vagrant Virtual Machines
 
 This repo provides machines for development.  Host machine can be your desktop
 (linux, mac, windows) or a bare-metal linux server in the datacenter.

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash 
+
+source ~/.bashrc_base 
+
+xtitle "rebuild $(pwd_short)"
+
+vagrant halt && vagrant destroy -f 
+
